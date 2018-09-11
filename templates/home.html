@@ -1,6 +1,8 @@
 <h1>Word Counter</h1>
 <p>Welcome to word counter application</p>
 
-<div>
-    {{ name }}
-</div>
+<form action="{% url 'count' %}">
+    <textarea name="fulltext" cols="40" rows="10"></textarea>
+    <br/>
+    <input type="submit" value="Count this text!"/>
+</form>

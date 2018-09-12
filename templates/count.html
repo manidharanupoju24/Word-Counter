@@ -2,7 +2,15 @@
 
 <p>{{ fulltext }}</p>
 
-<p> {{ word_list}} </p>
-<p>
-    There are {{word_count}} words in the text you entered
-</p>
+<h3>
+     There are {{count}} words in the text you entered.
+</h3>
+
+<p>{{wordDict}}</p>
+
+{% for word, total in wordDict %}
+
+<p>{{word}} : {{total}}</p>
+</br>
+
+{%endfor%}

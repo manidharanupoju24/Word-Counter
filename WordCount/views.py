@@ -10,6 +10,16 @@ def homepage(request):
 def countpage(request):
     fulltext = request.GET['fulltext']
     word_list = fulltext.split()
-    word_count = len(word_list)
+    count = len(word_list)
 
-    return render(request, 'count.html', {'fulltext': fulltext, 'word_list': word_list, 'word_count': word_count})
+    wordDict = {}
+
+    for word in word_list:
+        if word in wordDict:
+            # increment
+            wordDict[word] += 1
+        else:
+            # Add to the dict
+            wordDict[word] = 1
+
+    return render(request, 'count.html', {'fulltext': fulltext, 'word_list': word_list, 'count': count, 'wordDict': wordDict.items()})

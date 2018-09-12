@@ -8,4 +8,8 @@ def homepage(request):
 
 
 def countpage(request):
-    return render(request, 'count.html')
+    fulltext = request.GET['fulltext']
+    word_list = fulltext.split()
+    word_count = len(word_list)
+
+    return render(request, 'count.html', {'fulltext': fulltext, 'word_list': word_list, 'word_count': word_count})

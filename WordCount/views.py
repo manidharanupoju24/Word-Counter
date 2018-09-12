@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import operator
 
 
 def homepage(request):
@@ -22,4 +23,7 @@ def countpage(request):
             # Add to the dict
             wordDict[word] = 1
 
-    return render(request, 'count.html', {'fulltext': fulltext, 'word_list': word_list, 'count': count, 'wordDict': wordDict.items()})
+    sortedWords = sorted(wordDict.items(), key=operator.itemgetter(1), reverse=True)
+
+    return render(request, 'count.html', {'fulltext': fulltext, 'word_list': word_list, 'count': count,
+                                          'wordDict': sortedWords})

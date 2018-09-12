@@ -1,16 +1,15 @@
-<h1>Word count is displayed here</h1>
+<h1>Word Count and details</h1>
 
-<p>{{ fulltext }}</p>
+<h3>Your text : {{ fulltext }}</h3>
 
-<h3>
+<h2>
      There are {{count}} words in the text you entered.
-</h3>
+</h2>
 
-<p>{{wordDict}}</p>
+<a href="{%url 'home'%}">Start again</a>
 
 {% for word, total in wordDict %}
 
 <p>{{word}} : {{total}}</p>
-</br>
 
 {%endfor%}

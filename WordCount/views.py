@@ -27,3 +27,7 @@ def countpage(request):
 
     return render(request, 'count.html', {'fulltext': fulltext, 'word_list': word_list, 'count': count,
                                           'wordDict': sortedWords})
+
+
+def aboutpage(request):
+    return render(request, 'about.html')
